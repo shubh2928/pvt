@@ -284,7 +284,7 @@ def start_attack_reply(message, target, port, time):
 # Dictionary to store the last time each user ran the /bgmi command
 bgmi_cooldown = {}
 
-COOLDOWN_TIME =240
+COOLDOWN_TIME =100
 
 # Handler for /bgmi command
 @bot.message_handler(commands=['bgmi'])
@@ -306,7 +306,7 @@ def handle_bgmi(message):
             target = command[1]
             port = int(command[2])  # Convert port to integer
             time = int(command[3])  # Convert time to integer
-            if time > 120:
+            if time > 240:
                 response = "Error: Time interval must be less than 240."
             else:
                 record_command_logs(user_id, '/bgmi', target, port, time)
